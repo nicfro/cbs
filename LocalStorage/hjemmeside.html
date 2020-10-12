@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                margin: 0 auto;
+                max-width: 1024px
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            header, footer {
+                background: magenta;
+                padding: 20px;
+                border: 1px solid black
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            form {
+                font-size: 1rem;
+            }
+
+            .personal-greeting {
+                font-weight: bold;
+            }
+        </style>
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Vores hjemmeside
+            </h1>
+            <form>
+                <div class="husk">
+                    <label for="skrivnavn">Skriv dit navn her:</label>
+                    <input id="skrivnavn" type="text" required>
+                    <input id="submitnavn" type="submit" value="submit">
+                </div>
+                <div class="glem">
+                    <label for="glemnavn">jeg vil glemmes</label>
+                    <input id="glemnavn" type="reset" value="forget">
+                </div>
+            </form>
+        </header>
+        <main>
+            <p class="personal-greeting">
+                Velkommen til vores hjemmeside
+            </p>
+        </main>
+        <footer>
+            Denne hjemmeside er glimrende og lavet af Nicolai
+        </footer>
+    </body>
+</html>
