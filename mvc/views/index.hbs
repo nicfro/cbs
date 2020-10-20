@@ -1,0 +1,22 @@
+<p>Hello {{person}}</p>
+<p>Number of books {{books.length}}</p>
+
+{{#if books}}
+<ul>
+	{{#each books}}
+		<li style="list-style: none;">
+			<p>{{this.title}}</p>
+			<p>{{this.iban}} - {{this.description}}</p>
+		</li>
+	{{/each}}
+</ul>
+{{else}}
+<p>No books in store</p>
+{{/if}}
+
+<form action="/add" method="post">
+	<input type="text" placeholder="Title" name="title" id="title" required/> <!-- Required (fra standard browser forms) så at brugeren skal fylde ud -->
+	<input type="text" placeholder="IBAN" name="iban" id="iban" required/>
+	<input type="text" placeholder="Description" name="description" id="description"/>
+	<button type="submit">Lav ny bog</button>
+</form>
