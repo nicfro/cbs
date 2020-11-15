@@ -35,12 +35,11 @@ class Graph{
             const currentNode = queue.shift()
             const connections = this.nodes.connections.get(currentNode)
 
-            if (this.nodes.attributes.get(currentNode) == "mango"){
-                return currentNode
-            }
-
             for (let node of connections){
                 if (!visitedNodes[node]){
+                    if (this.nodes.attributes.get(node) == "mango"){
+                        return node
+                    }
                     visitedNodes[node] = true
                     queue.push(node)
                 }
@@ -48,7 +47,51 @@ class Graph{
         }
 
         return "no mango sellers"
+    }
 
+    depthFirstSearchIterative(startingNode){
+        let visitedNodes = []
+        let stack = []
+
+        visitedNodes[startingNode] = true
+        stack.push(startingNode)
+
+        while (stack.length > 0 ){
+            const currentNode = stack.pop()
+            const connections = this.nodes.connections.get(currentNode)
+
+            for (let node of connections){
+                if (!visitedNodes[node]){
+                    if (this.nodes.attributes.get(currentNode) == "mango"){
+                        return currentNode
+                    }
+                    visitedNodes[currentNode] = true
+                    stack.push(node)
+                }
+            }
+        }
+        return "no mango sellers"
+    }
+
+    depthFirstSearchHelper(node, visitedNodes){
+        visitedNodes[node] = true 
+
+        const connections = this.nodes.connections.get(node)
+
+        if (this.nodes.attributes.get(node) == "mango"){
+            console.log(node, "sells mango")
+        }
+
+        for (let node of connections){
+            if (!visitedNodes[node]){
+                this.depthFirstSearchHelper(node, visitedNodes)
+            }
+        }
+    }
+
+    depthFirstSearchRecursive(startingNode){
+        let visitedNodes = []
+        this.depthFirstSearchHelper(startingNode, visitedNodes)
     }
 }
 
@@ -63,7 +106,8 @@ graph.addNode("Anuj")
 graph.addNode("Jonny")
 graph.addNode("Thom")
 
-//graph.addNodeAttribute("Thom", "mango")
+graph.addNodeAttribute("Anuj", "mango")
+graph.addNodeAttribute("Claire", "mango")
 
 graph.addEdge("Nicolai", "Bob")
 graph.addEdge("Nicolai", "Claire")
@@ -76,3 +120,5 @@ graph.addEdge("Claire", "Jonny")
 
 
 console.log(graph.breadthFirstSearch("Nicolai"))
+console.log(graph.depthFirstSearchIterative("Nicolai"))
+graph.depthFirstSearchRecursive("Nicolai")
