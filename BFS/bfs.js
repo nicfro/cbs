@@ -30,7 +30,6 @@ class Graph{
 
         visitedNodes[startingNode] = true
         queue.push(startingNode)
-
         while (queue.length > 0){
             const currentNode = queue.shift()
             const connections = this.nodes.connections.get(currentNode)
@@ -93,6 +92,40 @@ class Graph{
         let visitedNodes = []
         this.depthFirstSearchHelper(startingNode, visitedNodes)
     }
+
+    ShortestPathBFS(startingNode, endNode){
+        let visitedNodes = []
+        let queue = []
+
+        let parents = {}
+        visitedNodes[startingNode] = true
+        queue.push(startingNode)
+        while (queue.length > 0){
+            const currentNode = queue.shift()
+            const connections = this.nodes.connections.get(currentNode)
+
+            for (let node of connections){
+                if (!visitedNodes[node]){
+                    visitedNodes[node] = true
+                    parents[node] = currentNode
+                    queue.push(node)
+                    if (node == endNode){
+                        return graph.backtrack(parents, startingNode, endNode)
+                    }
+                }
+            }
+        }
+
+        return "No path exists"
+    }
+
+    backtrack(parents, startingNode, endNode){
+        const path = [endNode]
+        while(path[path.length -1 ] != startingNode){
+            path.push(parents[path[path.length-1]])
+        }
+        return path.reverse()
+    }
 }
 
 let graph = new Graph()
@@ -105,9 +138,12 @@ graph.addNode("Bob")
 graph.addNode("Anuj")
 graph.addNode("Jonny")
 graph.addNode("Thom")
+graph.addNode("Hans")
+graph.addNode("Holger")
 
-graph.addNodeAttribute("Anuj", "mango")
-graph.addNodeAttribute("Claire", "mango")
+
+graph.addNodeAttribute("Holger", "mango")
+//graph.addNodeAttribute("Claire", "mango")
 
 graph.addEdge("Nicolai", "Bob")
 graph.addEdge("Nicolai", "Claire")
@@ -117,8 +153,9 @@ graph.addEdge("Bob", "Peggy")
 graph.addEdge("Bob", "Anuj")
 graph.addEdge("Claire", "Thom")
 graph.addEdge("Claire", "Jonny")
+graph.addEdge("Anuj", "Hans")
+graph.addEdge("Hans", "Holger")
 
 
-console.log(graph.breadthFirstSearch("Nicolai"))
-console.log(graph.depthFirstSearchIterative("Nicolai"))
-graph.depthFirstSearchRecursive("Nicolai")
+
+console.log(graph.ShortestPathBFS("Nicolai", "Hans"))
