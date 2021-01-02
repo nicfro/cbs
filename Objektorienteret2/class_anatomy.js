@@ -31,6 +31,7 @@ class RectangularPrism {
     }
 
     calcSurfaceArea() {
+        // formular for surface area
         return (2 * this.height * this.width) + (2 * this.length * this.width) + (2 * this.height * this.length);
     }
 
@@ -43,6 +44,7 @@ class RectangularPrism {
     }
 
     calcWeight(){
+        // formular for volume multiplied with density
         return this.height * this.width * this.length * this.#density
     }
 }
