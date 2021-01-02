@@ -13,15 +13,15 @@ class RectangularPrism {
      * @param {width} width - The width of the rectangular prism.
      */
     #density
-    #color
     constructor({height = 1, width = 1, length = 1} = {}) {
         this.height = height;
         this.width = width;
         this.length = length
         this.#density = 5;
-        static this.#color = "black"
+        
     }
-    
+    static #color = "black"
+    static color1 = "black"
     /**
     * Get the area of the rectangular prism.
     * @return {number} The area.
@@ -55,6 +55,11 @@ const square1 = new RectangularPrism({height: 10, width: 10});
 console.log(square1.area); // 240
 console.log(square1.weight) // 500
 console.log(square1.density) // undefined (private)
+console.log(square1.color) //undefined (private & static)
+console.log(square1.color1) //undefined (static)
+console.log(RectangularPrism.color) // undefined (private & static)
+console.log(RectangularPrism.color1) // black (static NOT private)
+
 
 
 
