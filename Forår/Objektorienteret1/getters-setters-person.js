@@ -40,5 +40,6 @@ console.log(person.fullName) //NICOLAI FROST
 console.log(person.occupation) //undefined
 console.log(person.doWork()) //work work
 person.firstName = "Regitze"
-console.log(person.firstName)
+console.log(person.firstName) //1REGITZE
+
 
