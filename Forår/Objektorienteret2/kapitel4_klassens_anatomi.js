@@ -1,27 +1,55 @@
-// Klasse navn
-// Kommentare
-// Atributter
-// Konstruktor
-// Public Functions
-// Private Functions
-"use strict";
-
 class RectangularPrism {
-     /**
-     * Create a rectangular prism.
-     * @param {height} height - The height of the rectangular prism.
-     * @param {width} width - The width of the rectangular prism.
-     */
+    /**
+    * Create a rectangular prism.
+    * @param {height} height - The height of the rectangular prism.
+    * @param {width} width - The width of the rectangular prism.
+    */
     #density
-    constructor({height = 1, width = 1, length = 1} = {}) {
+    constructor({ height = 1, width = 1, length = 1 } = {}) {
         this.height = height;
         this.width = width;
         this.length = length
         this.#density = 5;
-        
+
     }
     static #color = "black"
     static color1 = "black"
+
+    /* Implement getters og setters */
+    set height(newValue) {
+        this.height = newValue; // Vi kunne undersøge om inputtet kun have bogstaver
+    }
+
+    get height() {
+        return this.height;
+    }
+
+
+    set width(newValue) {
+        this.width = newValue;
+    }
+
+    get width() {
+        return this.width;
+    }
+
+    set length(newValue) {
+        this.length = newValue;
+    }
+
+    get length() {
+        return this.length;
+    }
+
+    set density(newValue) {
+        this.#density = newValue;
+    }
+
+    get density() {
+        return this.#density;
+    }
+
+
     /**
     * Get the area of the rectangular prism.
     * @return {number} The area.
@@ -40,10 +68,10 @@ class RectangularPrism {
     * @return {number} The weight.
     */
     get weight() {
-    return this.calcWeight();
+        return this.calcWeight();
     }
 
-    calcWeight(){
+    calcWeight() {
         // formular for volume multiplied with density
         return this.height * this.width * this.length * this.#density
     }
@@ -53,7 +81,7 @@ class RectangularPrism {
 const square = new RectangularPrism();
 console.log(square.area); // 6
 
-const square1 = new RectangularPrism({height: 10, width: 10});
+const square1 = new RectangularPrism({ height: 10, width: 10 });
 console.log(square1.area); // 240
 console.log(square1.weight) // 500
 console.log(square1.density) // undefined (private)

@@ -1,4 +1,4 @@
-/* EKSEMPEL #1 | */
+/* EKSEMPEL #1 | Funktionsconstructor */
 
 // Lav en person construkter med variablerne first, last, age and eye
 function Person(first, last, age, eye) {
@@ -14,6 +14,7 @@ var myMother = new Person("Sally", "Rally", 48, "green");
 
 // Vis deres alder
 console.log("My father is " + myFather.age + ". My mother is " + myMother.age + ".");
+// My father is 50. My mother is 48.
 
 
 /* EKSEMPEL #2 | Klasseconstructor */
@@ -24,7 +25,7 @@ class Polygon {
 }
 
 const poly1 = new Polygon();
-console.log(poly1.name);
+console.log(poly1.name); // Polygon 
 
 /* EKSEMPEL #3 | */
 function greet(greeting = 'Hey', name = 'Brendan') {
@@ -86,12 +87,62 @@ function numberBetween5and10(number) {
     }
 }
 
-console.log(numberBetween5and10(4))
-console.log(numberBetween5and10(20))
-console.log(numberBetween5and10('hi'))
-console.log(numberBetween5and10(''))
+console.log(numberBetween5and10(4)) // Input is too low
+console.log(numberBetween5and10(20)) // Input is too high
+console.log(numberBetween5and10('hi')) // Input is not a number
+console.log(numberBetween5and10('')) // Input is empty
 
 
-/* EKSEMPEL #6 | */
+/* EKSEMPEL #6 | Scope*/
 const message = 'Hello';
 console.log(message); // 'Hello'
+
+if (true) {
+    const message1 = 'Hello';
+}
+//console.log(message1); // ReferenceError: message is not defined
+
+/* EKSEMPEL #7| Var er ikke block-scoped*/
+
+if (true) {
+    // "if" block scope
+    var count = 0;
+    console.log(count); // 0
+}
+console.log(count); // 0
+
+/* EKSEMPEL #8| Funktion og klassed scoped*/
+function run() {
+    // "run" function scope
+    var m = 'Run, Forrest, Run!';
+    console.log(m); // 'Run, Forrest, Run!'
+    const two = 2;
+    let c = 0;
+    function run2() { }
+
+    console.log(two);   // 2
+    console.log(c); // 0
+    console.log(run2);  // function
+}
+
+run();
+//console.log(m); // throws ReferenceError
+//console.log(two);   // throws ReferenceError
+//console.log(c); // throws ReferenceError
+//console.log(run2);  // throws ReferenceError
+
+
+function run() {
+    // "run" function scope
+    const message = 'Run, Forrest, Run!';
+
+    if (true) {
+        // "if" code block scope
+        const friend = 'Bubba';
+        console.log(message); // 'Run, Forrest, Run!'
+    }
+
+    console.log(friend); // throws ReferenceError
+}
+
+run();
