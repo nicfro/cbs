@@ -131,7 +131,7 @@ run();
 //console.log(c); // throws ReferenceError
 //console.log(run2);  // throws ReferenceError
 
-
+/* Eskempel #9 | Indlejret scope */
 function run() {
     // "run" function scope
     const message = 'Run, Forrest, Run!';

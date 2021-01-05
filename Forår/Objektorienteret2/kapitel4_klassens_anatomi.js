@@ -1,8 +1,9 @@
 class RectangularPrism {
     /**
-    * Create a rectangular prism.
+    * This class defines a rectangular prism and calculates its surface area and height
     * @param {height} height - The height of the rectangular prism.
     * @param {width} width - The width of the rectangular prism.
+    * @param {length} length - The length of the rectangular prism.
     */
     #density
     constructor({ height = 1, width = 1, length = 1 } = {}) {
@@ -15,40 +16,13 @@ class RectangularPrism {
     static #color = "black"
     static color1 = "black"
 
-    /* Implement getters og setters */
-    set height(newValue) {
-        this.height = newValue; // Vi kunne undersøge om inputtet kun have bogstaver
-    }
-
     get height() {
         return this.height;
     }
 
-
-    set width(newValue) {
-        this.width = newValue;
+    set height(newName) {
+        this.height = newName;
     }
-
-    get width() {
-        return this.width;
-    }
-
-    set length(newValue) {
-        this.length = newValue;
-    }
-
-    get length() {
-        return this.length;
-    }
-
-    set density(newValue) {
-        this.#density = newValue;
-    }
-
-    get density() {
-        return this.#density;
-    }
-
 
     /**
     * Get the area of the rectangular prism.
@@ -76,7 +50,6 @@ class RectangularPrism {
         return this.height * this.width * this.length * this.#density
     }
 }
-
 
 const square = new RectangularPrism();
 console.log(square.area); // 6
