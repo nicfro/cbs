@@ -1,0 +1,14 @@
+{  
+    "server": "yourservername.database.windows.net", 
+    "authentication": {
+        "type": "default",
+        "options": {
+            "userName": "username", 
+            "password": "password" 
+        }
+    },
+    "options": {
+        "encrypt": true,
+        "database": "databasename"
+    }
+} 
