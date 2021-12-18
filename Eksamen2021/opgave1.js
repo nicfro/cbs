@@ -4,7 +4,6 @@ function divide_numbers_in_list(arr) {
         var numerator = arr[index]
         var denominator = arr[index+1]
         var element
-    
         /*
         1:  Undersøger om tæller eller nævner er en streng
             Hvis de er en streng - så kaster vi en fejl

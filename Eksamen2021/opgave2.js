@@ -17,7 +17,6 @@ function sushi1(array){
             largest_slice_size = total;
             largest_slice_minute = minute;
         }
-        
         // Flyt det sidste element fra listen til den førstes plads
         // [1,2,3,4] -> [4,1,2,3]
         array.splice(0, 0, array.pop())

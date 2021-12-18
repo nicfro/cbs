@@ -1,4 +1,4 @@
-// Tilføjer alle knapperne
+// Tilføjer alle knapperne ved deres id
 const button1 = document.getElementById('1');
 const button2 = document.getElementById('2');
 const button3 = document.getElementById('3');
@@ -16,7 +16,6 @@ const buttonC = document.getElementById('C');
 
 const screen = document.getElementById('screen');
 const output = document.getElementById('output');
-
 
 // Tilføjer alle event listeners - Alle knapperne tilføjer deres symobl
 button1.addEventListener('click', function(){
