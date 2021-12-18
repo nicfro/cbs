@@ -37,6 +37,10 @@ function divide_numbers_in_list(arr) {
     arr.pop()
     return arr
 }
- 
-console.log(divide_numbers_in_list([4,3,3,0,1,2]))
-console.log(divide_numbers_in_list([2,2,"hi",0,20,40]))
+result1 = divide_numbers_in_list([4,3,3,0,1,2])
+result2 = divide_numbers_in_list([2,2,"hi",0,20,40])
+
+// console log er rigeligt, hvis i vil flexe med assert i node er det herligt.
+console.log(result1)
+console.log(result2)
+console.log(result1.length == 5, result2.length == 5)
